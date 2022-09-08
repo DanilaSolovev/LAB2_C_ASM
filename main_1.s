@@ -9,42 +9,41 @@ array_res_asm	PROC	; Начало функции array_treatment_asm
 		; R0 = *array
 		; R1 = size(array)
 	MOV R3, #0x00
-    MOV R9, #0x04
-    MUL R9, R1
+    MOV R7, R1
     PUSH {LR}
-    SUB SP,R9
+    SUB SP,R7
     MOV R2,SP ;=mas_parity
     BL parity_prog
     SUB SP, #0x04
     MOV R1, SP ;=MAX_SIZEpar
-    STR R0, [R1, #0]
+    STRB R0, [R1, #0]
     
     
     
     MOV R1, SP ;=MAX_SIZEpar
-    LDR R1, [R1, #0]
+    LDRB R1, [R1, #0]
     ADD SP, #0x04
     MOV R0, SP ;=mas_parity
     SUB SP, #0x04
-    SUB SP, R9
+    SUB SP, R7
     MOV R2, SP ;=mas_positive
     BL positive_prog
     SUB SP, #0x04
     MOV R1, SP ;=MAX_SIZEpos
-    STR R0, [R1, #0x00]
+    STRB R0, [R1, #0x00]
 
 
     MOV R1, SP ;=MAX_SIZEpos
-    LDR R1, [R1, #0x00]
+    LDRB R1, [R1, #0x00]
     ADD SP, #0x04
     MOV R0, SP ;=mas_positive
     BL avg_prog
     
     ;Возврат
-    ADD SP, R9
-    LDR R1, [SP, #0x00]
+    ADD SP, R7
+    LDRB R1, [SP, #0x00]
     ADD SP, #0x04
-    ADD SP, R9
+    ADD SP, R7
     POP {LR}
     BX LR
     ENDP
@@ -62,16 +61,12 @@ srav
     CMP R3, R1
     BEQ exit
     MOV R6, #0x02
-    MOV R7, #0x04
-    MOV R8, #0x04
     UDIV R5, R3, R6
     MUL R5, R5, R6
     CMP R5, R3
     BNE iplus
-    MUL R7,R3
-    LDR R5, [R0, R7]
-    MUL R8,R4
-    STR R5, [R2, R8]
+    LDRB R5, [R0, R3]
+    STRB R5, [R2, R4]
     ADD R4, #0x01
 iplus    
     ADD R3, #0x01
@@ -95,16 +90,12 @@ positive_prog PROC
     
     MOV R5, R0
 srav1
-    MOV R7, #0x04
-    MOV R8, #0x04
     CMP R3, R1
     BEQ exit1
-    MUL R7,R3
-    LDR R0, [R5, R7]
-    CMP R0, #0x00
-    BLT iplus1
-    MUL R8,R4
-    STR R0, [R2, R8]
+    LDRB R0, [R5, R3]
+    CMP R0, #0xF0
+    BGT iplus1
+    STRB R0, [R2, R4]
     ADD R4, #0x01
 iplus1    
     ADD R3, #0x01
@@ -127,11 +118,9 @@ avg_prog PROC
     MOV R5, #0x00
     MOV R2, R0
 srav2
-    MOV R7, #0x04
     CMP R3, R1
     BEQ exit2
-    MUL R7, R3
-    LDR R0, [R2, R7]
+    LDRB R0, [R2, R3]
     ADD R5, R0
     ADD R3, #0x01
     B srav2

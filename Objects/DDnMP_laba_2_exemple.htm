@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\Objects\DDnMP_laba_2_exemple.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\DDnMP_laba_2_exemple.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Fri Sep 09 00:13:10 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Mon Apr 25 21:46:36 2022
 <BR><P>
-<H3>Maximum Stack Usage =        104 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =         88 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 __rt_entry_main &rArr; main &rArr; array_res &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 <P>
@@ -148,7 +148,7 @@ Global Symbols
 <P><STRONG><a name="[55]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[14]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 88 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; array_res &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -173,7 +173,7 @@ Global Symbols
 
 <P><STRONG><a name="[58]"></a>_maybe_terminate_alloc</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, maybetermalloc1.o(.emb_text), UNUSED)
 
-<P><STRONG><a name="[1b]"></a>array_res_asm</STRONG> (Thumb, 82 bytes, Stack size 0 bytes, main_1.o(.text))
+<P><STRONG><a name="[1b]"></a>array_res_asm</STRONG> (Thumb, 78 bytes, Stack size 0 bytes, main_1.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;avg_prog
 <LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;positive_prog
 <LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parity_prog
@@ -365,8 +365,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[15]"></a>main</STRONG> (Thumb, 84 bytes, Stack size 24 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = main &rArr; array_res &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
+<P><STRONG><a name="[15]"></a>main</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = main &rArr; array_res &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;array_res_asm
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;array_res
@@ -377,18 +377,18 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[1c]"></a>parity_prog</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, main_1.o(.text))
+<P><STRONG><a name="[1c]"></a>parity_prog</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, main_1.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parity_prog
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parity_prog
 <LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;array_res_asm
 </UL>
 
-<P><STRONG><a name="[1d]"></a>positive_prog</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, main_1.o(.text))
+<P><STRONG><a name="[1d]"></a>positive_prog</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, main_1.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;array_res_asm
 </UL>
 
-<P><STRONG><a name="[1e]"></a>avg_prog</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, main_1.o(.text))
+<P><STRONG><a name="[1e]"></a>avg_prog</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, main_1.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;array_res_asm
 </UL>
 
